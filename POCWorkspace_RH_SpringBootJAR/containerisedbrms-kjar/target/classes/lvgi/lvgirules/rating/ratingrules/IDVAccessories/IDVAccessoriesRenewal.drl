@@ -1,0 +1,384 @@
+package lvgi.lvgirules.rating.ratingrules.IDVAccessories;
+
+import lvgi.lvgirules.model.MotorPremiumRatesResponse;
+import lvgi.lvgirules.model.MotorPremiumRates;
+import lvgi.lvgirules.model.BrmsVariables;
+
+/*CNG Kit Renewal Rules*/
+rule "IdvCngKitRenewalSingleYr"
+no-loop true
+lock-on-active true
+salience 93
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler","Private Car","PCV","GCV","Misc D"), newPolicyTenure == "Single Year", renewalNoticeGeneration == "Y", expiringIdvCng>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvCng() >= br.getIdvCngMin() && mpr.getIdvCng() < br.getIdvCngMin()) {
+mpr.setIdvCng(br.getIdvCngMin()); update(mpr);
+}
+
+if(m.getExpiringIdvCng() < br.getIdvCngMin()) {
+mpr.setIdvCng(m.getExpiringIdvCng()); update(mpr);
+}
+
+end
+
+rule "IdvCngKitRenewalTwoYr"
+no-loop true
+lock-on-active true
+salience 93
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler"), newPolicyTenure == "Two Year", renewalNoticeGeneration == "Y", expiringIdvCng>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvCng() >= br.getIdvCngMin() && mpr.getIdvCng() < br.getIdvCngMin()) {
+mpr.setIdvCng(br.getIdvCngMin());  update(mpr);
+mpr.setIdv2Cng(br.getIdvCngMin());  update(mpr);
+}
+
+if(m.getExpiringIdvCng() < br.getIdvCngMin()) {
+mpr.setIdvCng(m.getExpiringIdvCng());  update(mpr); 
+mpr.setIdv2Cng(m.getExpiringIdvCng());  update(mpr);
+}
+
+end
+
+rule "IdvCngKitRenewalThreeYr"
+no-loop true
+lock-on-active true
+salience 93
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler"), newPolicyTenure == "Three Year", renewalNoticeGeneration == "Y", expiringIdvCng>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvCng() >= br.getIdvCngMin() && mpr.getIdvCng() < br.getIdvCngMin()) {
+mpr.setIdvCng(br.getIdvCngMin());  update(mpr);
+mpr.setIdv2Cng(br.getIdvCngMin());  update(mpr);
+mpr.setIdv3Cng(br.getIdvCngMin());  update(mpr);
+}
+
+if(m.getExpiringIdvCng() < br.getIdvCngMin()) {
+mpr.setIdvCng(m.getExpiringIdvCng());  update(mpr);
+mpr.setIdv2Cng(m.getExpiringIdvCng());  update(mpr);
+mpr.setIdv3Cng(m.getExpiringIdvCng());  update(mpr);
+}
+
+end
+
+rule "IdvCngKitRenewalFourYr"
+no-loop true
+lock-on-active true
+salience 93
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler"), newPolicyTenure == "Four Year", renewalNoticeGeneration == "Y", expiringIdvCng>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvCng() >= br.getIdvCngMin() && mpr.getIdvCng() < br.getIdvCngMin()) {
+mpr.setIdvCng(br.getIdvCngMin());  update(mpr);
+mpr.setIdv2Cng(br.getIdvCngMin());  update(mpr);
+mpr.setIdv3Cng(br.getIdvCngMin());  update(mpr);
+mpr.setIdv4Cng(br.getIdvCngMin());  update(mpr);
+}
+
+if(m.getExpiringIdvCng() < br.getIdvCngMin()) {
+mpr.setIdvCng(m.getExpiringIdvCng());  update(mpr);
+mpr.setIdv2Cng(m.getExpiringIdvCng());  update(mpr);
+mpr.setIdv3Cng(m.getExpiringIdvCng());  update(mpr);
+mpr.setIdv4Cng(m.getExpiringIdvCng());  update(mpr);
+}
+
+end
+
+rule "IdvCngKitRenewalFiveYr"
+no-loop true
+lock-on-active true
+salience 93
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler"), newPolicyTenure == "Five Year", renewalNoticeGeneration == "Y", expiringIdvCng>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvCng() >= br.getIdvCngMin() && mpr.getIdvCng() < br.getIdvCngMin()) {
+mpr.setIdvCng(br.getIdvCngMin());  update(mpr);
+mpr.setIdv2Cng(br.getIdvCngMin());  update(mpr);
+mpr.setIdv3Cng(br.getIdvCngMin());  update(mpr);
+mpr.setIdv4Cng(br.getIdvCngMin());  update(mpr);
+mpr.setIdv5Cng(br.getIdvCngMin());  update(mpr);
+}
+
+if(m.getExpiringIdvCng() < br.getIdvCngMin()) {
+mpr.setIdvCng(m.getExpiringIdvCng());  update(mpr);
+mpr.setIdv2Cng(m.getExpiringIdvCng());  update(mpr);
+mpr.setIdv3Cng(m.getExpiringIdvCng());  update(mpr);
+mpr.setIdv4Cng(m.getExpiringIdvCng());  update(mpr);
+mpr.setIdv5Cng(m.getExpiringIdvCng());  update(mpr);
+}
+
+end
+
+/*Electrical Kit Renewal Rules*/
+rule "IdvElectricalRenewalSingleYr"
+no-loop true
+lock-on-active true
+salience 91
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler","Private Car","PCV","GCV","Misc D"), newPolicyTenure == "Single Year", renewalNoticeGeneration == "Y", expiringIdvElectrical>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvElectrical() >= br.getIdvElectricalMin() && mpr.getIdvElectrical() < br.getIdvElectricalMin()) {
+mpr.setIdvElectrical(br.getIdvElectricalMin());  update(mpr);
+}
+
+if(m.getExpiringIdvElectrical() < br.getIdvElectricalMin()) {
+mpr.setIdvElectrical(m.getExpiringIdvElectrical());  update(mpr);
+}
+
+end
+
+rule "IdvElectricalRenewalTwoYr"
+no-loop true
+lock-on-active true
+salience 91
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler"), newPolicyTenure == "Two Year", renewalNoticeGeneration == "Y", expiringIdvElectrical>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvElectrical() >= br.getIdvElectricalMin() && mpr.getIdvElectrical() < br.getIdvElectricalMin()) {
+mpr.setIdvElectrical(br.getIdvElectricalMin());  update(mpr);
+mpr.setIdv2Electrical(br.getIdvElectricalMin());  update(mpr);
+}
+
+if(m.getExpiringIdvElectrical() < br.getIdvElectricalMin()) {
+mpr.setIdvElectrical(m.getExpiringIdvElectrical());  update(mpr);
+mpr.setIdv2Electrical(m.getExpiringIdvElectrical());  update(mpr);
+}
+
+end
+
+rule "IdvElectricalRenewalThreeYr"
+no-loop true
+lock-on-active true
+salience 91
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler"), newPolicyTenure == "Three Year", renewalNoticeGeneration == "Y", expiringIdvElectrical>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvElectrical() >= br.getIdvElectricalMin() && mpr.getIdvElectrical() < br.getIdvElectricalMin()) {
+mpr.setIdvElectrical(br.getIdvElectricalMin());  update(mpr);
+mpr.setIdv2Electrical(br.getIdvElectricalMin());  update(mpr);
+mpr.setIdv3Electrical(br.getIdvElectricalMin());  update(mpr);
+}
+
+if(m.getExpiringIdvElectrical() < br.getIdvElectricalMin()) {
+mpr.setIdvElectrical(m.getExpiringIdvElectrical());  update(mpr);
+mpr.setIdv2Electrical(m.getExpiringIdvElectrical());  update(mpr);
+mpr.setIdv3Electrical(m.getExpiringIdvElectrical());  update(mpr);
+}
+
+end
+
+rule "IdvElectricalRenewalFourYr"
+no-loop true
+lock-on-active true
+salience 91
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler"), newPolicyTenure == "Four Year", renewalNoticeGeneration == "Y", expiringIdvElectrical>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvElectrical() >= br.getIdvElectricalMin() && mpr.getIdvElectrical() < br.getIdvElectricalMin()) {
+mpr.setIdvElectrical(br.getIdvElectricalMin());  update(mpr);
+mpr.setIdv2Electrical(br.getIdvElectricalMin());  update(mpr);
+mpr.setIdv3Electrical(br.getIdvElectricalMin());  update(mpr);
+mpr.setIdv4Electrical(br.getIdvElectricalMin());  update(mpr);
+}
+
+if(m.getExpiringIdvElectrical() < br.getIdvElectricalMin()) {
+mpr.setIdvElectrical(m.getExpiringIdvElectrical());  update(mpr);
+mpr.setIdv2Electrical(m.getExpiringIdvElectrical());  update(mpr);
+mpr.setIdv3Electrical(m.getExpiringIdvElectrical());  update(mpr);
+mpr.setIdv4Electrical(m.getExpiringIdvElectrical());  update(mpr);
+}
+
+end
+
+rule "IdvElectricalRenewalFiveYr"
+no-loop true
+lock-on-active true
+salience 91
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler"), newPolicyTenure == "Five Year", renewalNoticeGeneration == "Y", expiringIdvElectrical>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvElectrical() >= br.getIdvElectricalMin() && mpr.getIdvElectrical() < br.getIdvElectricalMin()) {
+mpr.setIdvElectrical(br.getIdvElectricalMin());  update(mpr);
+mpr.setIdv2Electrical(br.getIdvElectricalMin());  update(mpr);
+mpr.setIdv3Electrical(br.getIdvElectricalMin());  update(mpr);
+mpr.setIdv4Electrical(br.getIdvElectricalMin());  update(mpr);
+mpr.setIdv5Electrical(br.getIdvElectricalMin());  update(mpr);
+}
+
+if(m.getExpiringIdvElectrical() < br.getIdvElectricalMin()) {
+mpr.setIdvElectrical(m.getExpiringIdvElectrical());  update(mpr);
+mpr.setIdv2Electrical(m.getExpiringIdvElectrical());  update(mpr);
+mpr.setIdv3Electrical(m.getExpiringIdvElectrical());  update(mpr);
+mpr.setIdv4Electrical(m.getExpiringIdvElectrical());  update(mpr);
+mpr.setIdv5Electrical(m.getExpiringIdvElectrical());  update(mpr);
+}
+
+end
+
+
+/*Non-Electrical Kit Renewal Rules*/
+rule "IdvNonElectricalRenewalSingleYr"
+no-loop true
+lock-on-active true
+salience 91
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler","Private Car","PCV","GCV","Misc D"), newPolicyTenure == "Single Year", renewalNoticeGeneration == "Y", expiringIdvNonElectrical>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvNonElectrical() >= br.getIdvNonElectricalMin() && mpr.getIdvNonElectrical() < br.getIdvNonElectricalMin()) {
+mpr.setIdvNonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+}
+
+if(m.getExpiringIdvNonElectrical() < br.getIdvNonElectricalMin()) {
+mpr.setIdvNonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+}
+
+end
+
+rule "IdvNonElectricalRenewalTwoYr"
+no-loop true
+lock-on-active true
+salience 91
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler"), newPolicyTenure == "Two Year", renewalNoticeGeneration == "Y", expiringIdvNonElectrical>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvNonElectrical() >= br.getIdvNonElectricalMin() && mpr.getIdvNonElectrical() < br.getIdvNonElectricalMin()) {
+mpr.setIdvNonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+mpr.setIdv2NonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+}
+
+if(m.getExpiringIdvNonElectrical() < br.getIdvNonElectricalMin()) {
+mpr.setIdvNonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+mpr.setIdv2NonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+}
+
+end
+
+rule "IdvNonElectricalRenewalThreeYr"
+no-loop true
+lock-on-active true
+salience 91
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler"), newPolicyTenure == "Three Year", renewalNoticeGeneration == "Y", expiringIdvNonElectrical>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvNonElectrical() >= br.getIdvNonElectricalMin() && mpr.getIdvNonElectrical() < br.getIdvNonElectricalMin()) {
+mpr.setIdvNonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+mpr.setIdv2NonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+mpr.setIdv3NonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+}
+
+if(m.getExpiringIdvNonElectrical() < br.getIdvNonElectricalMin()) {
+mpr.setIdvNonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+mpr.setIdv2NonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+mpr.setIdv3NonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+}
+
+end
+
+rule "IdvNonElectricalRenewalFourYr"
+no-loop true
+lock-on-active true
+salience 91
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler"), newPolicyTenure == "Four Year", renewalNoticeGeneration == "Y", expiringIdvNonElectrical>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvNonElectrical() >= br.getIdvNonElectricalMin() && mpr.getIdvNonElectrical() < br.getIdvNonElectricalMin()) {
+mpr.setIdvNonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+mpr.setIdv2NonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+mpr.setIdv3NonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+mpr.setIdv4NonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+}
+
+if(m.getExpiringIdvNonElectrical() < br.getIdvNonElectricalMin()) {
+mpr.setIdvNonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+mpr.setIdv2NonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+mpr.setIdv3NonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+mpr.setIdv4NonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+}
+
+end
+
+rule "IdvNonElectricalRenewalFiveYr"
+no-loop true
+lock-on-active true
+salience 91
+ruleflow-group "IDVDTRules"
+when
+mpr : MotorPremiumRatesResponse();
+m: MotorPremiumRates(vehicleType in ("Two Wheeler"), newPolicyTenure == "Five Year", renewalNoticeGeneration == "Y", expiringIdvNonElectrical>0)
+br:BrmsVariables();
+then
+
+if(m.getExpiringIdvNonElectrical() >= br.getIdvNonElectricalMin() && mpr.getIdvNonElectrical() < br.getIdvNonElectricalMin()) {
+mpr.setIdvNonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+mpr.setIdv2NonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+mpr.setIdv3NonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+mpr.setIdv4NonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+mpr.setIdv5NonElectrical(br.getIdvNonElectricalMin());  update(mpr);
+}
+
+if(m.getExpiringIdvNonElectrical() < br.getIdvNonElectricalMin()) {
+mpr.setIdvNonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+mpr.setIdv2NonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+mpr.setIdv3NonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+mpr.setIdv4NonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+mpr.setIdv5NonElectrical(m.getExpiringIdvNonElectrical());  update(mpr);
+}
+
+end

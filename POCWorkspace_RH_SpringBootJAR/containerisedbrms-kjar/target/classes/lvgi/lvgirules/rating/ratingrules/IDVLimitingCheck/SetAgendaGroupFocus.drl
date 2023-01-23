@@ -1,0 +1,27 @@
+package lvgi.lvgirules.rating.ratingrules.IDVLimitingCheck;
+
+import lvgi.lvgirules.model.MotorPremiumRates;
+
+rule "SetAgendaGroupFocusOnGuidedRules"
+salience 60
+no-loop true
+lock-on-active true
+
+when
+MotorPremiumRates()
+then
+kcontext.getKnowledgeRuntime().getAgenda().getAgendaGroup( "IDVGuidedRules" ).setFocus();
+
+end
+
+rule "SetAgendaGroupFocusOnDecisionTable"
+salience 150
+no-loop true
+lock-on-active true
+
+when
+MotorPremiumRates()
+then
+kcontext.getKnowledgeRuntime().getAgenda().getAgendaGroup( "IDVDTRules" ).setFocus();
+
+end

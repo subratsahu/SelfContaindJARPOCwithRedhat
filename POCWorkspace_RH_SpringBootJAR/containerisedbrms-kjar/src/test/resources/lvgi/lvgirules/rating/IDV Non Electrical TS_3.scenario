@@ -1,0 +1,91 @@
+<scenario>
+  <name>IDV Non Electrical TS_3.scenario</name>
+  <maxRuleFirings>100000</maxRuleFirings>
+  <globals/>
+  <fixtures>
+    <fact-data>
+      <type>MotorPremiumRates</type>
+      <fieldData>
+        <field-data>
+          <name>vehicleType</name>
+          <value>TW</value>
+          <nature>4</nature>
+        </field-data>
+        <field-data>
+          <name>accessoryType</name>
+          <value>Non-Electrical</value>
+          <nature>4</nature>
+        </field-data>
+        <field-data>
+          <name>newPolicyTenure</name>
+          <value>Three Year</value>
+          <nature>4</nature>
+        </field-data>
+        <field-data>
+          <name>businessType</name>
+          <value>Renewal</value>
+          <nature>4</nature>
+        </field-data>
+      </fieldData>
+      <name>m</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <fact-data>
+      <type>MotorPremiumRatesResponse</type>
+      <fieldData/>
+      <name>mpr</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <execution-trace>
+      <executionTimeResult>34</executionTimeResult>
+      <numberOfRulesFired>2</numberOfRulesFired>
+    </execution-trace>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>idvNonElectrical</fieldName>
+          <expected>0.00</expected>
+          <successResult>true</successResult>
+          <explanation>[mpr] field [idvNonElectrical] was [0.00].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+        <expect-field>
+          <fieldName>idv2NonElectrical</fieldName>
+          <expected>0.00</expected>
+          <successResult>true</successResult>
+          <explanation>[mpr] field [idv2NonElectrical] was [0.00].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+        <expect-field>
+          <fieldName>idv3NonElectrical</fieldName>
+          <expected>0.00</expected>
+          <successResult>true</successResult>
+          <explanation>[mpr] field [idv3NonElectrical] was [0.00].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+      </fieldValues>
+      <name>mpr</name>
+      <anonymous>false</anonymous>
+    </expect-fact>
+  </fixtures>
+  <lastRunResult>2015-11-17 11:35:27.225 UTC</lastRunResult>
+  <rules/>
+  <inclusive>false</inclusive>
+  <packageName>lvgi.lvgirules.rating</packageName>
+  <imports>
+    <imports>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>java.lang.Number</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>lvgi.lvgirules.model.MotorPremiumRates</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>lvgi.lvgirules.model.MotorPremiumRatesResponse</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+    </imports>
+  </imports>
+</scenario>

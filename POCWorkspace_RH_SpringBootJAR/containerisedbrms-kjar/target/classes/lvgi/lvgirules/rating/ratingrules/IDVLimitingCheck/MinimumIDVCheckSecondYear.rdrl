@@ -1,0 +1,18 @@
+package lvgi.lvgirules.rating.ratingrules.IDVLimitingCheck;
+
+import java.lang.Number;
+import lvgi.lvgirules.model.MotorPremiumRatesResponse;
+
+rule "MinimumIDVCheckSecondYear"
+	dialect "mvel"
+	no-loop true
+	lock-on-active true
+	salience 50
+	agenda-group "IDVGuidedRules"
+	when
+		mpr : MotorPremiumRatesResponse( idv2 > 0.0 , idv2 < mpr.getMinIdv() )
+	then
+		modify( mpr ) {
+				setIdv2( mpr.getMinIdv() )
+		}
+end

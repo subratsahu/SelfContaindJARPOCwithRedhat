@@ -1,0 +1,142 @@
+<scenario>
+  <name>IDV Two Year Policy TS.scenario</name>
+  <maxRuleFirings>100000</maxRuleFirings>
+  <globals/>
+  <fixtures>
+    <fact-data>
+      <type>MotorPremiumRates</type>
+      <fieldData>
+        <field-data>
+          <name>vehicleType</name>
+          <value>TW</value>
+          <nature>4</nature>
+        </field-data>
+        <field-data>
+          <name>newPolicyTenure</name>
+          <value>Two Year</value>
+          <nature>4</nature>
+        </field-data>
+        <field-data>
+          <name>vehicleAge</name>
+          <value>0.2</value>
+          <nature>4</nature>
+        </field-data>
+      </fieldData>
+      <name>m</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <fact-data>
+      <type>BrmsVariables</type>
+      <fieldData/>
+      <name>br</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <fact-data>
+      <type>MotorPremiumRatesResponse</type>
+      <fieldData/>
+      <name>mpr</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <execution-trace>
+      <executionTimeResult>74</executionTimeResult>
+      <numberOfRulesFired>2</numberOfRulesFired>
+    </execution-trace>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>depreciation</fieldName>
+          <expected>5.00</expected>
+          <successResult>true</successResult>
+          <explanation>[br] field [depreciation] was [5.00].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+        <expect-field>
+          <fieldName>deviationLow</fieldName>
+          <expected>-10.00</expected>
+          <successResult>true</successResult>
+          <explanation>[br] field [deviationLow] was [-10.00].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+        <expect-field>
+          <fieldName>deviationHigh</fieldName>
+          <expected>10.00</expected>
+          <successResult>true</successResult>
+          <explanation>[br] field [deviationHigh] was [10.00].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+        <expect-field>
+          <fieldName>depreciation2</fieldName>
+          <expected>20.00</expected>
+          <actualResult>55.00000000000001</actualResult>
+          <successResult>true</successResult>
+          <explanation>[br] field [depreciation2] was [20.00].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+      </fieldValues>
+      <name>br</name>
+      <anonymous>false</anonymous>
+    </expect-fact>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>idv</fieldName>
+          <expected>0.00</expected>
+          <successResult>true</successResult>
+          <explanation>[mpr] field [idv] was [0.00].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+        <expect-field>
+          <fieldName>idvLow</fieldName>
+          <expected>0.00</expected>
+          <successResult>true</successResult>
+          <explanation>[mpr] field [idvLow] was [0.00].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+        <expect-field>
+          <fieldName>idvHigh</fieldName>
+          <expected>0.00</expected>
+          <successResult>true</successResult>
+          <explanation>[mpr] field [idvHigh] was [0.00].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+        <expect-field>
+          <fieldName>idv2</fieldName>
+          <expected>0.00</expected>
+          <successResult>true</successResult>
+          <explanation>[mpr] field [idv2] was [0.00].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+      </fieldValues>
+      <name>mpr</name>
+      <anonymous>false</anonymous>
+    </expect-fact>
+  </fixtures>
+  <lastRunResult>2015-11-17 12:58:14.801 UTC</lastRunResult>
+  <rules/>
+  <inclusive>false</inclusive>
+  <packageName>lvgi.lvgirules.rating</packageName>
+  <imports>
+    <imports>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>java.lang.Number</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>lvgi.lvgirules.model.BrmsVariables</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>lvgi.lvgirules.model.MotorPremiumRates</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>lvgi.lvgirules.model.MotorPremiumRatesResponse</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+    </imports>
+  </imports>
+</scenario>
